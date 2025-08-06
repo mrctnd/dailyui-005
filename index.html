@@ -3,52 +3,211 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern Calculator</title>
+    <title>User Profile - Day 005</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
   <body>
     <div class="container">
-      <div class="calculator">
-        <div class="display">
-          <div class="history" id="history"></div>
-          <div class="current" id="current">0</div>
+      <div class="profile-card">
+        <!-- Cover Image -->
+        <div class="cover-image">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cover" />
+          <div class="edit-cover">
+            <i class="fas fa-camera"></i>
+          </div>
         </div>
-        
-        <div class="buttons">
-          <!-- Row 1 -->
-          <button class="btn function" onclick="clearAll()">AC</button>
-          <button class="btn function" onclick="clearEntry()">CE</button>
-          <button class="btn function" onclick="deleteLast()">⌫</button>
-          <button class="btn operator" onclick="inputOperator('/')">÷</button>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Profile" id="profileImage" />
+            <div class="status-indicator online"></div>
+            <div class="edit-avatar">
+              <i class="fas fa-camera"></i>
+            </div>
+          </div>
           
-          <!-- Row 2 -->
-          <button class="btn number" onclick="inputNumber('7')">7</button>
-          <button class="btn number" onclick="inputNumber('8')">8</button>
-          <button class="btn number" onclick="inputNumber('9')">9</button>
-          <button class="btn operator" onclick="inputOperator('*')">×</button>
+          <div class="profile-info">
+            <h1 class="profile-name">Alex Johnson</h1>
+            <p class="profile-username">@alexjohnson</p>
+            <p class="profile-title">Senior UI/UX Designer</p>
+            <p class="profile-location">
+              <i class="fas fa-map-marker-alt"></i>
+              San Francisco, CA
+            </p>
+          </div>
+
+          <div class="profile-actions">
+            <button class="btn btn-primary" onclick="followUser()">
+              <i class="fas fa-user-plus"></i>
+              Follow
+            </button>
+            <button class="btn btn-secondary" onclick="messageUser()">
+              <i class="fas fa-comment"></i>
+              Message
+            </button>
+            <button class="btn btn-icon" onclick="showMoreOptions()">
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+          </div>
+
+          <!-- Profile Stats -->
+          <div class="profile-stats">
+            <div class="stat-item">
+              <span class="stat-number">1,234</span>
+              <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">15.2K</span>
+              <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">892</span>
+              <span class="stat-label">Following</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">4.8</span>
+              <span class="stat-label">Rating</span>
+            </div>
+          </div>
           
-          <!-- Row 3 -->
-          <button class="btn number" onclick="inputNumber('4')">4</button>
-          <button class="btn number" onclick="inputNumber('5')">5</button>
-          <button class="btn number" onclick="inputNumber('6')">6</button>
-          <button class="btn operator" onclick="inputOperator('-')">-</button>
-          
-          <!-- Row 4 -->
-          <button class="btn number" onclick="inputNumber('1')">1</button>
-          <button class="btn number" onclick="inputNumber('2')">2</button>
-          <button class="btn number" onclick="inputNumber('3')">3</button>
-          <button class="btn operator" onclick="inputOperator('+')">+</button>
-          
-          <!-- Row 5 -->
-          <button class="btn number zero" onclick="inputNumber('0')">0</button>
-          <button class="btn number" onclick="inputDecimal()">.</button>
-          <button class="btn equals" onclick="calculate()">=</button>
+          <!-- Badge Collection -->
+          <div class="profile-badges">
+            <h3>Achievements</h3>
+            <div class="badges-grid">
+              <div class="badge">
+                <i class="fas fa-trophy"></i>
+                <span>Top Designer</span>
+              </div>
+              <div class="badge">
+                <i class="fas fa-star"></i>
+                <span>5 Star Rating</span>
+              </div>
+              <div class="badge">
+                <i class="fas fa-fire"></i>
+                <span>Trending Creator</span>
+              </div>
+              <div class="badge">
+                <i class="fas fa-medal"></i>
+                <span>Design Excellence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+          <!-- Profile Bio -->
+          <div class="profile-bio">
+            <p>
+              Passionate UI/UX Designer with 8+ years of experience creating beautiful 
+              and functional digital experiences. Love coffee ☕, design systems 🎨, 
+              and building products that make people's lives better.
+            </p>
+            <div class="bio-links">
+              <a href="#" class="bio-link">
+                <i class="fas fa-link"></i>
+                portfolio.alexjohnson.com
+              </a>
+              <a href="#" class="bio-link">
+                <i class="fab fa-twitter"></i>
+                @alexjohnson
+              </a>
+              <a href="#" class="bio-link">
+                <i class="fab fa-dribbble"></i>
+                dribbble.com/alexjohnson
+              </a>
+            </div>
+          </div>
+
+          <!-- Skills Section -->
+          <div class="profile-skills">
+            <h3>Skills & Expertise</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">UI/UX Design</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Sketch</span>
+              <span class="skill-tag">Prototyping</span>
+              <span class="skill-tag">Design Systems</span>
+              <span class="skill-tag">User Research</span>
+              <span class="skill-tag">Adobe Creative Suite</span>
+              <span class="skill-tag">Webflow</span>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="profile-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong>Liked</strong> Sarah's design post</p>
+                  <span class="activity-time">2 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-comment"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong>Commented</strong> on Mobile App Redesign</p>
+                  <span class="activity-time">5 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-upload"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong>Published</strong> new design project</p>
+                  <span class="activity-time">1 day ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- More Options Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>More Options</h3>
+          <button class="modal-close" onclick="closeModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-content">
+          <button class="modal-option">
+            <i class="fas fa-share"></i>
+            Share Profile
+          </button>
+          <button class="modal-option">
+            <i class="fas fa-bookmark"></i>
+            Save to Favorites
+          </button>
+          <button class="modal-option">
+            <i class="fas fa-flag"></i>
+            Report User
+          </button>
+          <button class="modal-option">
+            <i class="fas fa-ban"></i>
+            Block User
+          </button>
         </div>
       </div>
     </div>

@@ -1,13 +1,13 @@
 # Daily UI
 
-## #002: Calculation
+## #00t: User Profile
 
-Design a calculation element or interface. Is it a standard calculator, a scientific one, or specialty calculator for something such as a home mortgage or auto loan? Is it to forecast a calculation such as for a credit score? Is it for a phone, a tablet, a web app?
+Design a user profile and be mindful of the most important data, names, imagery, placement, etc. Is it for a serious profile? A social profile? (It's up to you!)
 
 ---
 ## 📸 Screenshot
 
-![Calculation Preview](./images/screenshot.png)
+![User Profile Preview](./images/screenshot.png)
 
 ## Project Structure and File Descriptions
 
